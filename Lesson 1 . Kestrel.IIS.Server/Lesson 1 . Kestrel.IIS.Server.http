@@ -1,0 +1,6 @@
+@Lesson_1_._Kestrel.IIS.Server_HostAddress = http://localhost:5188
+
+GET {{Lesson_1_._Kestrel.IIS.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
