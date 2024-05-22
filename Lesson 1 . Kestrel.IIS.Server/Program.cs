@@ -17,28 +17,31 @@ app.Run(async (HttpContext context) =>
 
     if (context.Request.Method == "GET")
     {
-        var result = Checked(context.Request.Query);
-        if (result.Any())
+        string operation = context.Request.Query["operation"];
+        var errors = Checked(context.Request.Query);
+        if(errors.Any())
         {
             context.Response.StatusCode = 400;
+            foreach (var item in errors)
+            {
+                await context.Response.WriteAsync($"<h1> Invalid input for '{item}'</h1>");
+            }
         }
-        foreach (var item in result)
+        else if (!operators.Contains(operation))
         {
-            await context.Response.WriteAsync($"<h1> Invalid input for '{item}'</h1>");
+            context.Response.StatusCode = 400;
+            await context.Response.WriteAsync($"<h1> Invalid input for 'operation' </h1>");
+        }
+        else
+        {
+            int firstNumber = int.Parse(context.Request.Query["firstNumber"]);
+            int secondNumber = int.Parse(context.Request.Query["secondNumber"]);
+            int  finallyresult =  result(firstNumber, secondNumber , operation);
+             context.Response.StatusCode = 200;
+            await context.Response.WriteAsync($"<h1>{finallyresult}</h1>");
         }
     }
-    else if (!operators.Contains(context.Request.Query["operation"]))
-    {
-        context.Response.StatusCode = 400;
-        await context.Response.WriteAsync($"<h1> Invalid input for 'operation' </h1>");
-    }
-    else
-    {
-        var firstNumber = context.Request.Query["firstNumber"];
-        var secondNumber = context.Request.Query["secondNumber"];
-        var operation = context.Request.Query["operation"];
-
-    }
+    
 });
 
 List<string> Checked(IQueryCollection query)
@@ -65,18 +68,7 @@ int result(int first, int second, string operation) =>
         "residual" => first % second,
     };
 
-
-
-
-    //app.MapGet("/", () => "Hello world");
-    /*app.Run(async (HttpContext context)
-        =>
-    {
-        var path = context.Request.Path;
-        context.Response.Headers["MyKey"] = "My value";
-        context.Response.Headers["Server"] = "knskdjnksjd";
-        context.Response.StatusCode = StatusCodes.Status404NotFound;
-        await context.Response.WriteAsync($"<h1>{path}</h1>");
-    });
-    */
 app.Run();
+
+
+
