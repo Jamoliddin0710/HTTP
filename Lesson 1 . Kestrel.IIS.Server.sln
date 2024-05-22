@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson 1 . Kestrel.IIS.Serv
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson 2", "Lesson 2\Lesson 2.csproj", "{BD4DEC35-3A84-4E38-A452-743A4A826374}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Question", "Question\Question.csproj", "{A621A539-D91C-4F69-81EF-8965F375BA54}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{BD4DEC35-3A84-4E38-A452-743A4A826374}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD4DEC35-3A84-4E38-A452-743A4A826374}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD4DEC35-3A84-4E38-A452-743A4A826374}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A621A539-D91C-4F69-81EF-8965F375BA54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A621A539-D91C-4F69-81EF-8965F375BA54}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A621A539-D91C-4F69-81EF-8965F375BA54}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A621A539-D91C-4F69-81EF-8965F375BA54}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
